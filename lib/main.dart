@@ -5,6 +5,7 @@ import 'package:course_o_pedia/course_details.dart';
 import 'package:course_o_pedia/course_json.dart';
 import 'package:course_o_pedia/size_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 void main() {
   runApp(const CourseOPediaApp());
@@ -18,7 +19,10 @@ class CourseOPediaApp extends StatefulWidget {
 }
 
 class _CourseOPediaAppState extends State<CourseOPediaApp> {
-  final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
+  final ValueNotifier<ThemeMode> _notifier = ValueNotifier(
+      SchedulerBinding.instance?.window.platformBrightness == Brightness.dark
+          ? ThemeMode.dark
+          : ThemeMode.light);
   @override
   Widget build(BuildContext context) {
     var primaryColor = const Color(0xFFc5cae8);
