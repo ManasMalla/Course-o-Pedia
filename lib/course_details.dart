@@ -175,41 +175,43 @@ List<Widget> getTopicDetailScreens(List<TopicDetails> details, ThemeMode mode) {
   List<Widget> widgets = [];
   for (var item in details) {
     widgets.add(
-      Padding(
-        padding: EdgeInsets.all(getProportionalScreenHeight(32)),
-        child: Column(
-          children: [
-            SizedBox(
-              height: getProportionalScreenHeight(420),
-              child: Image.network(item.image),
-            ),
-            SizedBox(
-              height: getProportionalScreenHeight(48),
-            ),
-            Text(
-              item.title,
-              style: TextStyle(
-                  fontSize: getProportionalScreenHeight(45),
-                  color: mode == ThemeMode.light
-                      ? Color(0xFF1b2272)
-                      : Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Poppins"),
-            ),
-            SizedBox(
-              height: getProportionalScreenHeight(60),
-            ),
-            Text(
-              item.description,
-              style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: getProportionalScreenHeight(27),
-                  fontWeight: FontWeight.w500,
-                  color: mode == ThemeMode.light
-                      ? Colors.grey.shade700
-                      : Colors.white),
-            ),
-          ],
+      SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(getProportionalScreenHeight(32)),
+          child: Column(
+            children: [
+              SizedBox(
+                height: getProportionalScreenHeight(420),
+                child: Image.network(item.image),
+              ),
+              SizedBox(
+                height: getProportionalScreenHeight(48),
+              ),
+              Text(
+                item.title,
+                style: TextStyle(
+                    fontSize: getProportionalScreenHeight(45),
+                    color: mode == ThemeMode.light
+                        ? Color(0xFF1b2272)
+                        : Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Poppins"),
+              ),
+              SizedBox(
+                height: getProportionalScreenHeight(60),
+              ),
+              Text(
+                item.description,
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: getProportionalScreenHeight(27),
+                    fontWeight: FontWeight.w500,
+                    color: mode == ThemeMode.light
+                        ? Colors.grey.shade700
+                        : Colors.white),
+              ),
+            ],
+          ),
         ),
       ),
     );
